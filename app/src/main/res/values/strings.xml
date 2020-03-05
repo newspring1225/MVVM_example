@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PET ID</string>
+    <string name="scllingViewBehavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+</resources>
