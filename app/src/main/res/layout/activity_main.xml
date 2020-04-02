@@ -5,7 +5,6 @@
     tools:context=".view.MainActivity">
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -13,84 +12,105 @@
             type="kr.co.unioncomm.petid.viewmodel.MainViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/main_photo2" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:collapsedTitleTextAppearance="@style/Toolbar.TitleText"
-                app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleGravity="bottom|center_horizontal"
-                app:expandedTitleTextAppearance="@style/CollapsingToolbar.TitleText"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/main_photo"
-                    app:layout_collapseMode="parallax" />
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:fitsSystemWindows="true"
-                    app:layout_collapseMode="pin"
-                    app:popupTheme="@style/AppTheme.PopupOverlay"
-                    app:title="@string/app_name">
-
-                </androidx.appcompat.widget.Toolbar>
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            app:layout_behavior="@string/scllingViewBehavior">
-
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="50dp"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:onClick="onClickEnroll">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn_1" />
+                    android:src="@drawable/btn_1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    android:text="반려동물\n등록하기"
+                    android:textColor="@color/black"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickMatching">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/btn_2" />
+                    android:src="@drawable/btn_2"/>
 
-                <ImageView
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/btn_3" />
+                    android:layout_margin="10dp"
+                    android:textSize="14dp"
+                    android:text="1:1매칭\n회원 및 이력 관리"
+                    android:textColor="@color/black"/>
 
-            </LinearLayout>
+            </FrameLayout>
 
-        </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:background="@color/colorAccent"
+            android:id="@+id/llfooter"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="2020 UNIONCOMMUNITY Co.,Ltd. All Right Reserved."
+                android:textSize="12dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="12dp"
+                android:text="오시는길 : 서울특별시 송파구 법원로 127, 문정대명벨리온 12층  |  대표전화 : 02-6488-3000  | 사업자번호 : 211-86-91935"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
 </layout>

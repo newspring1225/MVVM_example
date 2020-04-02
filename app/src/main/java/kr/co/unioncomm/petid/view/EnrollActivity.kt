@@ -3,16 +3,17 @@ package kr.co.unioncomm.petid.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_enroll.*
 import kr.co.unioncomm.petid.R
+import kr.co.unioncomm.petid.databinding.ActivityEnrollBinding
 import kr.co.unioncomm.petid.databinding.ActivityMainBinding
 import kr.co.unioncomm.petid.util.Trace
 import kr.co.unioncomm.petid.view.base.BaseActivity
 import kr.co.unioncomm.petid.viewmodel.MainViewModel
 
-class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
+class EnrollActivity : BaseActivity<MainViewModel, ActivityEnrollBinding>() {
     override val layoutRes: Int
-        get() = R.layout.activity_main
+        get() = R.layout.activity_enroll
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,16 +31,12 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     private fun setToolbar() {
+        toolbar.title = getString(R.string.enroll)
+        setSupportActionBar(toolbar)
 
-    }
-
-    fun onClickEnroll(view:View){
-        startActivity(Intent(this,EnrollActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
-        })
-    }
-
-    fun onClickMatching(view:View){
-        Toast.makeText(this,"서비스 개발 중입니다.",Toast.LENGTH_SHORT).show()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 }

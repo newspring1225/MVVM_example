@@ -1,12 +1,10 @@
 package kr.co.unioncomm.petid.view.base
 
 import android.app.Activity
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.LayoutRes
@@ -18,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.AndroidInjection
 import kr.co.unioncomm.petid.util.Trace
-import kr.co.unioncomm.petid.view.LoadingView
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
@@ -64,20 +61,8 @@ abstract class BaseActivity<V : ViewModel, D : ViewDataBinding> : AppCompatActiv
         }
     }
 
-
     fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    fun setStatusbar(color: Int) {
-        if (window != null) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
-                window.statusBarColor = resources.getColor(color, null)
-            }else{
-                window.statusBarColor = resources.getColor(color)
-            }
-        }
     }
 
     fun hideKeyboard() {
